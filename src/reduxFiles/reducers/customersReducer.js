@@ -14,7 +14,7 @@ const customersReducer = (state = customersInitialState, action ) =>{
         }
         
         case c._ADD : {
-            return { ...state, data: [ {...action.payload}, ...state.data ]}
+            return { ...state, data: [ ...state.data, {...action.payload} ]}
         }
 
         case c._REMOVE : {

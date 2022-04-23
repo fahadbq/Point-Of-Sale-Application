@@ -12,7 +12,7 @@ const ProductsList = (props) =>{
     const { products } = useSelector((state) => state )
 
     useEffect( () => {
-        setCloneData([...products.data])
+        setCloneData([...products.data].reverse())
     }, [products.data])
 
     //Page pagination

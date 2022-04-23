@@ -13,7 +13,7 @@ const billsReducer = ( state = billInitialState, action) => {
             return { ...state, data: [...action.payload] }
         }
         case b._ADD: {
-            return { ...state, data: [{ ...action.payload}, ...state.data] }
+            return { ...state, data: [ ...state.data, { ...action.payload} ] }
         }
         case b._REMOVE: {
             return { ...state, data: [ ...state.data.filter( (ele) => {

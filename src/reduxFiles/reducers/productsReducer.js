@@ -14,7 +14,7 @@ const productsReducer = ( state= productInitialState, action) =>{
         }
 
         case p._ADD: {
-            return { ...state, data: [ { ...action.payload }, ...state.data ] }
+            return { ...state, data: [ ...state.data, { ...action.payload } ] }
         }
         case p._EDIT: {
             return { ...state, data: state.data.map((ele) =>{

@@ -6,30 +6,17 @@ const ProductForm = (props) =>{
 
     const { formSubmission, name: savedName, price: savedPrice } = props
 
-    // const formik = useFormik({
-    //     initialValues: {
-    //         name: (savedName) ? savedName : '',
-    //         price: (savedPrice) ? savedPrice : '',
-    //     },
-    //     validationSchema: yup.object({
-    //         name: yup.string().required('cannot leave blank'),
-    //         price: yup.number().required('enter a price')
-    //     }),
-    //     onSubmit: (values, { resetForm }) =>{
-    //         formSubmission(values, resetForm)
-    //         console.log(values)
-    //     }
-    // })
-
     const initialValues = {
         name: (savedName) ? savedName : '',
         price: (savedPrice) ? savedPrice : '',
     }
 
     const validationSchema = yup.object({
-                name: yup.string().required('cannot leave blank'),
-                price: yup.number().required('enter a price')
-            })
+        name: yup.string().required('Cannot leave blank'),
+        price: yup.string()
+            .matches(/^[0-9]+$/, "Must be only digits")
+            .required('Enter a price'),
+    })
 
     return (
         <div>
@@ -37,46 +24,28 @@ const ProductForm = (props) =>{
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit= {(values, { resetForm }) => {
-                    console.log(values)
                     formSubmission(values, resetForm)
                 }}
             >
-                {({errors, touched}) => {
+                {({errors, touched}) => (
                     <Form> 
                         <Field type="text"
                             name="name" 
-                            placeholder="enter a product"
+                            placeholder="Products name"
                         />
+                        { errors.name && touched.name ? <span> {errors.name} </span> : null }
 
+                        <Field type="text"
+                            name="price"
+                            placeholder="Price"
+                        />
+                        { errors.price && touched.price ? <span> {errors.price} </span> : null }
 
+                        <button type="submit" className="btn btn-success btn-sm" >Add</button>
                     </Form>
-                }}
+                )}
 
             </Formik>
-
-            <input type="text" /> awd
-
-            {/* <form onSubmit={formik.handleSubmit}>
-                <input type='text' 
-                    placeholder="product name" 
-                    name='name' 
-                    value={formik.values.name} 
-                    onChange={formik.handleChange} 
-                    onBlur={formik.handleBlur}
-                /> 
-                { formik.touched.name &&  formik.errors.name ? <span> {formik.errors.name} </span> : null } 
-
-                <input type='text'
-                    placeholder="price"
-                    name='price'
-                    value={formik.values.price}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                />
-                { formik.touched.price && formik.errors.price ? <span> {formik.errors.price} </span> : null } 
-
-                <input type='submit' value='Add' className="btn btn-success btn-sm" />
-            </form> */}
         </div>
     )
 }

@@ -12,7 +12,7 @@ const BillsList = (props) => {
     const { bills } = useSelector(state => state)
 
     useEffect(() =>{
-        setCloneData([...bills.data])
+        setCloneData([...bills.data].reverse())
     }, [bills.data])
 
     const indexOfLastData = currentPage * dataPerPage

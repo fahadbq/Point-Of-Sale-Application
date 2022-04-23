@@ -1,67 +1,61 @@
-import { useFormik } from "formik"
+import { Formik, Form, Field } from "formik"
 import * as yup from 'yup'
 
 const CustomerForm = (props) =>{
     const { formSubmission, name: savedName, mobile: savedMobile, email: savedEmail  } = props
 
-    const formik = useFormik({
-        initialValues: {
-            name: (savedName) ? savedName : '',
-            mobile: (savedMobile) ? savedMobile : '',
-            email: (savedEmail) ? savedEmail : '',
-        },
-        validationSchema: yup.object({
-            name: yup.string().required('cannot leave blank'),
-            mobile: yup.number().min(10, 'Note - Mobile number must be 10 digits').required('Required number'),
-            email: yup.string().email('invalid Email'),
-        }),
-        onSubmit: (values, { resetForm }) =>{
-            formSubmission(values, resetForm)
-        }
+    const initialValues = {
+        name: (savedName) ? savedName : '',
+        mobile: (savedMobile) ? savedMobile : '',
+        email: (savedEmail) ? savedEmail : '',
+    }
+
+    const validationSchema =  yup.object({
+        name: yup.string().required('Cannot leave blank'),
+        mobile: yup.string()
+            .matches(/^[0-9]+$/, "Must be only digits")
+            .min(10, 'Number must be 10 digits')
+            .max(10, 'Number must be 10 digits')
+            .required('Required number'),
+        email: yup.string().email('Invalid Email'),
     })
 
     return (
         <div>
+            <Formik 
+                initialValues={initialValues}
+                validationSchema = {validationSchema}
+                onSubmit= {(values, { resetForm }) => {
+                    console.log(values)
+                    formSubmission(values, resetForm)
+                }}
+            >
 
-            <form onSubmit={formik.handleSubmit}>
-                <input
-                    type='text'
-                    placeholder="name"
-                    name='name'
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                /> 
-                { formik.touched.name && formik.errors.name ? <span> {formik.errors.name} </span> : null }
+                { ({ errors, touched}) => (
+                    <Form >
+                        <Field type="text" 
+                            name="name"
+                            placeholder="Customers name"
+                        />
+                        { errors.name && touched.name ? <span> {errors.name} </span> : null }
 
-                <input
-                    type='text'
-                    placeholder="phone number"
-                    name='mobile'
-                    value={formik.values.mobile}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                /> 
-                { formik.touched.mobile && formik.errors.mobile ? <span> {formik.errors.mobile} </span> : null }
+                        <Field type="text"
+                            name="mobile"
+                            placeholder="Phone number"
+                        />
+                        { errors.mobile && touched.mobile ? <span> {errors.mobile} </span> : null }
 
-                <input
-                    type='email'
-                    placeholder="email"
-                    name='email'
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                /> 
-                { formik.touched.email && formik.errors.email ? <span> {formik.errors.email} </span> : null }
+                        <Field type="email"
+                            name="email"
+                            placeholder="email"
+                        />
+                        { errors.email && touched.email ? <span> {errors.email} </span> : null }
 
-                <input 
-                    type='submit'
-                    value='Submit'
+                        <button type="submit" className="btn btn-primary btn-sm" > Add </button>
+                    </Form>
+                )}
 
-                    className="btn btn-primary btn-sm"
-                />
-                
-            </form>
+            </Formik>
             
         </div>
     )

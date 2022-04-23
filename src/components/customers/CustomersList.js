@@ -13,7 +13,7 @@ const CustomersList = (props) =>{
 
     //Want deep copy in the first interation
     useEffect(() => {
-        setCloneData([...customers.data])
+        setCloneData([...customers.data].reverse())
     }, [customers.data])
 
     const indexOfLastData = currentPage * dataPerPage
