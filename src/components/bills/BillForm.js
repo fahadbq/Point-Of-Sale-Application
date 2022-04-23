@@ -60,6 +60,7 @@ const BillForm = (props) => {
                     dispatch(asyncAddBills(values, resetField, resetForm))
                 }}
             >   
+            
                 { ({ errors, touched }) => (
                     <Form className="row g-3 needs-validation" noValidate >
 
@@ -127,6 +128,7 @@ const BillForm = (props) => {
 
                 </Form>
                 )}
+
             </Formik>
 
         </div>
