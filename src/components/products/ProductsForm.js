@@ -41,9 +41,14 @@ const ProductForm = (props) =>{
                     formSubmission(values, resetForm)
                 }}
             >
-                {(errors, touched ) => {
+                {({errors, touched}) => {
                     <Form> 
-                        <Field type="text" name="name" placeholder="" />
+                        <Field type="text"
+                            name="name" 
+                            placeholder="" 
+                        />
+
+
                     </Form>
                 }}
 
