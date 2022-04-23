@@ -24,7 +24,7 @@ export const asyncGetBills = () =>{
     }
 }
 
-export const asyncAddBills = (formData, resetField) => {
+export const asyncAddBills = (formData, resetField, resetForm) => {
 
     return (dispatch) => {
         axios.post(`/bills`, formData) //Required token
@@ -32,6 +32,7 @@ export const asyncAddBills = (formData, resetField) => {
                 const billObj = res.data
                 console.log('successfully created', billObj)
                 dispatch(createBill(billObj))
+                resetForm({ values: ''})
                 resetField()
             })
             .catch( err => alert('Add error', err.message) )
