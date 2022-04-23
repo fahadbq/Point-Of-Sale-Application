@@ -102,8 +102,8 @@ const BillForm = (props) => {
             <Formik 
                 initialValues={initialValues}
                 validationSchema={validationSchema}
-                onSubmit={(values) => {
-                    dispatch(asyncAddBills(values, resetField))
+                onSubmit={(values, { resetForm }) => {
+                    dispatch(asyncAddBills(values, resetForm, resetField))
                 }}
             >   
                 { ({ errors, touched }) => (
