@@ -99,7 +99,9 @@ const Register = (props) => {
                         </div>
 
                         <div className="d-grid gap-2 col-12">
-                            <button type="submit" className="btn btn-primary btn-sm " disabled={ !dirty || !isValid } > Register </button>
+                            <button type="submit" 
+                                className="btn btn-primary btn-sm" 
+                                disabled={ !dirty || !isValid } > Register </button>
                         </div>
                     </Form>
                 )}
