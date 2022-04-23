@@ -45,7 +45,7 @@ const ProductForm = (props) =>{
                     <Form> 
                         <Field type="text"
                             name="name" 
-                            placeholder="" 
+                            placeholder="enter a product"
                         />
 
 
@@ -54,7 +54,7 @@ const ProductForm = (props) =>{
 
             </Formik>
 
-
+            <input type="text" /> awd
 
             {/* <form onSubmit={formik.handleSubmit}>
                 <input type='text' 

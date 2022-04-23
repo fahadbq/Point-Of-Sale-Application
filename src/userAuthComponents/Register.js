@@ -53,28 +53,47 @@ const Register = (props) => {
                 { ( {errors, touched, isValid, dirty} ) => (
                     <Form>
                         <div className='mb-3'>
-                            <Field name="username" type="text" placeholder="Username" className="form-control" />
+                            <Field type="text" 
+                                name="username" 
+                                placeholder="Username" 
+                                className="form-control" 
+                            />
 
                             { errors.username && touched.username ? <span className="form-text" > {errors.username} </span> : null }
                         </div>
 
                         <div className='mb-3'>
-                            <Field name="email" type="email" placeholder="Email" className="form-control" />
+                            <Field type="email" 
+                                name="email" 
+                                placeholder="Email" 
+                                className="form-control" 
+                            />
 
                             { errors.email && touched.email ? <span className="form-text" > {errors.email} </span> : null }
                         </div>
 
                         <div className='mb-3'>
-                            <Field 
-                                name="businessName" type="text" placeholder="BusinessName" className="form-control" />
+                            <Field type="text" 
+                                name="businessName" 
+                                placeholder="BusinessName" 
+                                className="form-control" 
+                            />
                         </div>
 
                         <div className='mb-3'>
-                            <Field name="address" type="text" placeholder="Address" className="form-control" />
+                            <Field type="text" 
+                                name="address" 
+                                placeholder="Address" 
+                                className="form-control" 
+                            />
                         </div>
 
                         <div className='mb-3'>
-                            <Field name="password" type="password" placeholder="Password" className="form-control" />
+                            <Field type="password" 
+                                name="password" 
+                                placeholder="Password" 
+                                className="form-control" 
+                            />
 
                             { errors.password && touched.password ? <span className="form-text" > {errors.password} </span> : null }
                         </div>
