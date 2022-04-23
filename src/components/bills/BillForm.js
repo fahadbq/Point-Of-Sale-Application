@@ -56,7 +56,7 @@ const BillForm = (props) => {
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={(values, { resetForm }) => {
-                    values.lineItems = [ ...inputFields] // Creating new property on Submitting of a form.
+                    values.lineItems = [ ...inputFields] // Creating new property on before Submitting a form.
                     dispatch(asyncAddBills(values, resetField, resetForm))
                 }}
             >   
