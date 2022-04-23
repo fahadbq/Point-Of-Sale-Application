@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 
-/token
+/gitToken
 
 # testing
 /coverage
