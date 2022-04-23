@@ -1,7 +1,6 @@
-import './App.css'
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import Navigate from './userAuthComp/Navigate'
+import Navigate from './userAuthComponents/Navigate'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { asyncGetUser } from './reduxFiles/actions/usersAction'
