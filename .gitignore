@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+/token
+
 # testing
 /coverage
 
