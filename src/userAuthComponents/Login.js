@@ -53,7 +53,7 @@ const Login = (props) =>{
                     <Form>
 
                         <div > 
-                            <Field name="email" type="text" placeholder="Enter your email" className="form-control" />
+                            <Field type="text" name="email" placeholder="Enter your email" className="form-control" />
 
                             { errors.email && touched.email ? <span className='form-text' > {errors.email} </span> : null } 
                             <br />

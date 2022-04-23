@@ -1,4 +1,4 @@
-import { useFormik } from "formik"
+import { Formik, Form, Field } from "formik"
 import * as yup from 'yup'
 
 
@@ -6,24 +6,52 @@ const ProductForm = (props) =>{
 
     const { formSubmission, name: savedName, price: savedPrice } = props
 
-    const formik = useFormik({
-        initialValues: {
-            name: (savedName) ? savedName : '',
-            price: (savedPrice) ? savedPrice : '',
-        },
-        validationSchema: yup.object({
-            name: yup.string().required('cannot leave blank'),
-            price: yup.number().required('enter a price')
-        }),
-        onSubmit: (values, { resetForm }) =>{
-            formSubmission(values, resetForm)
-            console.log(values)
-        }
-    })
+    // const formik = useFormik({
+    //     initialValues: {
+    //         name: (savedName) ? savedName : '',
+    //         price: (savedPrice) ? savedPrice : '',
+    //     },
+    //     validationSchema: yup.object({
+    //         name: yup.string().required('cannot leave blank'),
+    //         price: yup.number().required('enter a price')
+    //     }),
+    //     onSubmit: (values, { resetForm }) =>{
+    //         formSubmission(values, resetForm)
+    //         console.log(values)
+    //     }
+    // })
+
+    const initialValues = {
+        name: (savedName) ? savedName : '',
+        price: (savedPrice) ? savedPrice : '',
+    }
+
+    const validationSchema = yup.object({
+                name: yup.string().required('cannot leave blank'),
+                price: yup.number().required('enter a price')
+            })
 
     return (
         <div>
-            <form onSubmit={formik.handleSubmit}>
+            <Formik 
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit= {(values, { resetForm }) => {
+                    console.log(values)
+                    formSubmission(values, resetForm)
+                }}
+            >
+                {(errors, touched ) => {
+                    <Form> 
+                        <Field type="text" name="name" placeholder="" />
+                    </Form>
+                }}
+
+            </Formik>
+
+
+
+            {/* <form onSubmit={formik.handleSubmit}>
                 <input type='text' 
                     placeholder="product name" 
                     name='name' 
@@ -43,8 +71,7 @@ const ProductForm = (props) =>{
                 { formik.touched.price && formik.errors.price ? <span> {formik.errors.price} </span> : null } 
 
                 <input type='submit' value='Add' className="btn btn-success btn-sm" />
-            </form>
-
+            </form> */}
         </div>
     )
 }
