@@ -54,7 +54,6 @@ export const asyncLoginUser = (formData, pushAccPath, handleAuth, resetForm) =>{
     }
 }
 
-
 export const asyncGetUser = ( ) =>{
 
     return (dispatch) =>{
