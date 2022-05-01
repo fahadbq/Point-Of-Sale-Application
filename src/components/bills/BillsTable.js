@@ -11,9 +11,9 @@ const BillsTable = (props) => {
                 <thead>
                     <tr>
                         <th> Customers </th>
-                        <th> Products </th>
-                        <th> Bill Details </th>
+                        <th> Date </th>
                         <th> Total </th>
+                        <th> Info </th>
                         <th> Actions </th>
                     </tr>
                 </thead>
