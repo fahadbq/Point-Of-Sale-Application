@@ -14,7 +14,6 @@ const BillDetails = (props) => {
     const { bills, customers, products } = useSelector((state) => state )
 
     const findBillId = bills.data.find(ele => ele._id === bill._id)
-    console.log(findBillId)
 
     const toggle = () => {
         setShow(!show)
@@ -41,7 +40,7 @@ const BillDetails = (props) => {
                         { `Customer: ${findName(customers, bill.customer)}` }
                     </ModalHeader>
                     <ModalBody style={{backgroundColor: "#F5F5F5"}} >
-                        <Table secondary> 
+                        <Table> 
                             <thead>
                                 <tr>
                                     <th> Products </th>
@@ -52,7 +51,7 @@ const BillDetails = (props) => {
                             </thead>
                             <tbody>
                                 {bill.lineItems.map(ele => {
-                                    return <tr>
+                                    return <tr key={ele._id} >
                                         <td> {findName(products, ele.product)} </td>
                                         <td> {ele.quantity} </td>
                                         <td> ${ele.price} </td>
