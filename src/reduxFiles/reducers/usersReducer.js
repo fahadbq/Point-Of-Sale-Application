@@ -2,7 +2,7 @@ import { u } from '../actions/usersAction'
 
 const usersInitialState = {
     loading: true,
-    data: {}
+    data: []
 }
 
 const userReducer = (state = usersInitialState, action) =>{
