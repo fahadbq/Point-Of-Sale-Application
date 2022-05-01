@@ -5,7 +5,6 @@ import findName from '../../reduxFiles/selectors/findName'
 import BillDetails from './BillDetails'
 
 const BillItem = (props) => {
-    const [toggleComponent, setToggleComponent] = useState(false)
 
     const { bill } = props
 
@@ -21,10 +20,6 @@ const BillItem = (props) => {
         dispatch(asyncRemoveBills(id))
     }
 
-    const handleComponent = () =>{
-        setToggleComponent(!toggleComponent)
-    }
-
     return (
             <tr key={bill._id} >
 
@@ -33,7 +28,7 @@ const BillItem = (props) => {
                 <td> {bill.lineItems.map(ele => (`${findName(products, ele.product)} (${ele.quantity})`)).join(', ')} </td>
                 
                 {/* Item details Component */}
-                <td> { toggleComponent ? <BillDetails bill={bill} /> : <button onClick={() => handleComponent()  } className="btn btn-link"> Details </button> } </td>
+                <td> <BillDetails billId={bill._id} />  </td>
 
                 <td> ${bill.total} </td>
 
