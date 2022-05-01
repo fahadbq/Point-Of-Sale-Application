@@ -13,8 +13,6 @@ const BillDetails = (props) => {
 
     const { bills, customers, products } = useSelector((state) => state )
 
-    const findBillId = bills.data.find(ele => ele._id === bill._id)
-
     const toggle = () => {
         setShow(!show)
     }
