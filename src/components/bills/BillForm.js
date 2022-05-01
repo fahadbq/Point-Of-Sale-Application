@@ -48,7 +48,7 @@ const BillForm = (props) => {
     })
 
     return (
-        <div className='border border-2 shadow-sm p-3 mb-5 bg-body rounded' style={{ position: "fixed", top: '105px', right: "50px", width: "490px", height: "500px" }} >
+        <div className='border border-2 shadow-sm p-3 mb-5 bg-body rounded' style={{ position: "fixed", top: '105px', right: "50px", width: "490px", height: "455px" }} >
             
             <h4> Create a Bill </h4> <hr />
 
@@ -83,41 +83,46 @@ const BillForm = (props) => {
                         </Field>
                         { errors.customer && touched.customer ? <div> <span className="form-text" > { errors.customer } </span> </div> : null }
                     </div>
-
+                    
                     { inputFields.map(( field, index) =>{
-                        return <div key={index} className="col-md-6" >
+                        return <div key={index} className="row g-3" >
 
-                            <select value={field.product} name='product' onChange={(e) => handleDynamicChange(index, e) } className="form-select" > 
-                                <option value=''> Select Product </option>
-
-                                { products.data.map((prod) =>{
-                                    return <option key={ prod._id } value={prod._id} > {prod.name} </option>
-                                })}
-                            </select>
-                            
                             <div className="col-md-6" >
-                            <input type='number' 
-                                value={field.quantity} 
-                                name='quantity' 
-                                onChange={(e) => handleDynamicChange(index, e)} 
-                                min='1' 
-                                max='99' 
-                                className='form-control'
-                                style={{width: "70px"}} 
-                                
-                            />
+                                <select value={field.product} name='product' onChange={(e) => handleDynamicChange(index, e) } className="form-select" > 
+                                    <option value=''> Select Product </option>
+
+                                    { products.data.map((prod) =>{
+                                        return <option key={ prod._id } value={prod._id} > {prod.name} </option>
+                                    })}
+                                </select>
+                            </div>
+                            
+                            <div className="col-md-2" >
+                                <input type='number' 
+                                    value={field.quantity} 
+                                    name='quantity' 
+                                    onChange={(e) => handleDynamicChange(index, e)} 
+                                    min='1' 
+                                    max='99' 
+                                    className='form-control'
+                                    style={{width: "70px"}} 
+                                    
+                                />
                             </div>
 
-                            <input type='button' value='Add' onClick={() => {
-                                handleAddField()
-                            }} className="btn btn-success btn-sm" />
-                        
+                            <div className="col-md-2" >
+                                <input type='button' value='Add' onClick={() => {
+                                    handleAddField()
+                                }} className="btn btn-success" />
+                            </div>
 
-                            { index ? 
-                            <button type='button' 
-                                onClick={() => handleRemoveField(index) } 
-                                className="btn btn-danger btn-sm" > Delete 
-                            </button> : null }
+                            <div className="col-md-2" >
+                                { index ? 
+                                <button type='button' 
+                                    onClick={() => handleRemoveField(index) } 
+                                    className="btn btn-danger" > Delete 
+                                </button> : null }
+                            </div>
 
                         </div>
                     }) }
