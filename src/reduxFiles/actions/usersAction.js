@@ -1,4 +1,5 @@
 import axios from '../../config/axios'
+import swal from 'sweetalert'
 
 import { asyncGetBills } from './billsAction'
 import { asyncGetCustomers } from './customersAction'
@@ -19,7 +20,7 @@ export const asyncRegisterUser = (formData, pushRegisterPath, resetForm) =>{
                 const result = res.data
                 if( !result.hasOwnProperty('errors') ){ // Error not found
                     resetForm({ values: ''})
-                    alert('successfully Registered', result)
+                    swal({ title: "Registered!", icon: "success", button: "Ok" });
                     pushRegisterPath()
                 } else {
                     alert(result.message)
@@ -38,6 +39,7 @@ export const asyncLoginUser = (formData, pushAccPath, handleAuth, resetForm) =>{
                 const result = res.data
                 if( !result.hasOwnProperty('errors')){ // Error not found
                     localStorage.setItem('token', result.token)
+                    swal({ text: "Logged in", icon: "success", button: "Ok" });
                     pushAccPath()
                     dispatch(asyncGetUser()) // Need data after logging in
                     dispatch(asyncGetBills())

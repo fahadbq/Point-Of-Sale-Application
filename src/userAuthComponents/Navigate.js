@@ -1,5 +1,6 @@
 import { Route, NavLink, withRouter } from 'react-router-dom'
 import PrivateRoute from './../helperComponents/PrivateRoute'
+import swal from 'sweetalert'
 
 import Home from './Home'
 import Register from './Register'
@@ -16,10 +17,22 @@ const Navigate = (props) =>{
 
 
     const handleLogOut = () =>{
-        alert('logged out of the session')   
-        localStorage.removeItem('token')
-        handleAuth()
-        props.history.push('/')
+        swal({
+            title: "Are you sure?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                localStorage.removeItem('token')
+                handleAuth()
+              swal("Logged out", {
+                icon: "success",
+              });
+              props.history.push('/')
+            }
+          });
     }
 
 
@@ -43,7 +56,7 @@ const Navigate = (props) =>{
                         
                         <NavLink to='/account' className="navbar-brand nav-link active" > Account </NavLink>
 
-                        <NavLink to='/' onClick={ handleLogOut } className="navbar-brand nav-link active" > Log Out </NavLink>
+                        <NavLink to='/account' onClick={ handleLogOut } className="navbar-brand nav-link active" > Log Out </NavLink>
                     </div>
                 </nav>
             ) : (

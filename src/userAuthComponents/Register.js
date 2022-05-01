@@ -59,7 +59,7 @@ const Register = (props) => {
                                 className="form-control" 
                             />
 
-                            { errors.username && touched.username ? <span className="form-text" > {errors.username} </span> : null }
+                            { errors.username && touched.username ? <span className="form-text" style={{color: 'red'}} > {errors.username} </span> : null }
                         </div>
 
                         <div className='mb-3'>
@@ -69,7 +69,7 @@ const Register = (props) => {
                                 className="form-control" 
                             />
 
-                            { errors.email && touched.email ? <span className="form-text" > {errors.email} </span> : null }
+                            { errors.email && touched.email ? <span className="form-text" style={{color: 'red'}} > {errors.email} </span> : null }
                         </div>
 
                         <div className='mb-3'>
@@ -95,7 +95,7 @@ const Register = (props) => {
                                 className="form-control" 
                             />
 
-                            { errors.password && touched.password ? <span className="form-text" > {errors.password} </span> : null }
+                            { errors.password && touched.password ? <span className="form-text" style={{color: 'red'}} > {errors.password} </span> : null }
                         </div>
 
                         <div className="d-grid gap-2 col-12">

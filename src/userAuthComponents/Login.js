@@ -59,7 +59,7 @@ const Login = (props) =>{
                                 className="form-control" 
                             />
 
-                            { errors.email && touched.email ? <span className='form-text' > {errors.email} </span> : null } 
+                            { errors.email && touched.email ? <span className='form-text' style={{color: 'red'}} > {errors.email} </span> : null } 
                             <br />
                         </div>
 
@@ -70,7 +70,7 @@ const Login = (props) =>{
                                 className="form-control" 
                             />
                             
-                            { errors.password && touched.password ? <span className='form-text' > {errors.password} </span> : null } 
+                            { errors.password && touched.password ? <span className='form-text' style={{color: 'red'}} > {errors.password} </span> : null } 
                             <br/>
                         </div>
 
