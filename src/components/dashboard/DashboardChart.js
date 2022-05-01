@@ -23,7 +23,7 @@ const DashboardChart = (props) => {
 
     //Creating week's data
     const chartData = getlastWeekDays().map((ele) => {
-        return [ ele, totalIncome(bills, ele), "#404040"]
+        return [ ele, totalIncome(bills, ele), "#6B8E23"]
     })
 
     //Chart data

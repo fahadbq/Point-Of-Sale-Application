@@ -30,7 +30,7 @@ const AddProduct = (props) =>{
                     />
                 </div>
                 ) : (
-                <button onClick={handleAddToggle} className='btn btn-secondary' > Add Products </button>) 
+                <button onClick={handleAddToggle} className='btn btn-success' style={{ display:'inline-block', float: 'right' }} > Add Products </button>) 
             }
 
         </div>

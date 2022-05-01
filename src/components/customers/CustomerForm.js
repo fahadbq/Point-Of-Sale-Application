@@ -36,22 +36,25 @@ const CustomerForm = (props) =>{
                         <Field type="text" 
                             name="name"
                             placeholder="Customers name"
+                            className="form-control"
                         />
-                        { errors.name && touched.name ? <span> {errors.name} </span> : null }
+                        { errors.name && touched.name ? <span className="form-text" style={{color: "red"}} > {errors.name} </span> : null } <br />
 
                         <Field type="text"
                             name="mobile"
                             placeholder="Phone number"
+                            className="form-control"
                         />
-                        { errors.mobile && touched.mobile ? <span> {errors.mobile} </span> : null }
+                        { errors.mobile && touched.mobile ? <span className="form-text" style={{color: "red"}} > {errors.mobile} </span> : null } <br />
 
                         <Field type="email"
                             name="email"
                             placeholder="email"
+                            className="form-control"
                         />
-                        { errors.email && touched.email ? <span> {errors.email} </span> : null }
+                        { errors.email && touched.email ? <span className="form-text" style={{color: "red"}} > {errors.email} </span> : null } <br />
 
-                        <button type="submit" className="btn btn-primary btn-sm" > Add </button>
+                        <button type="submit" className="btn btn-primary d-grid gap-2 col-12" > Add </button>
                     </Form>
                 )}
 

@@ -29,7 +29,7 @@ const CustomerItem = (props) => {
                 <td> {cust.name} </td>
                 <td> {cust.email} </td>
                 <td> {cust.mobile} </td>
-                <td> <button onClick={handleToggle} className="btn btn-outline-secondary btn-sm" style={{ marginRight: "20px" }} > Edit </button>
+                <td> <button onClick={handleToggle} className="btn btn-outline-dark btn-sm" style={{ marginRight: "20px" }} > Edit </button>
 
                     <button onClick={() => {
                         handleRemove(cust._id)
