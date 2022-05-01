@@ -11,7 +11,7 @@ const BillDetails = (props) => {
     const { bill } = props
     //make get request for that bill id and get the data to show in modal
 
-    const { bills, customers, products } = useSelector((state) => state )
+    const { customers, products } = useSelector((state) => state )
 
     const toggle = () => {
         setShow(!show)
