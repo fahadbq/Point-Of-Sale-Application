@@ -4,7 +4,7 @@ import * as yup from 'yup'
 
 const ProductForm = (props) =>{
 
-    const { formSubmission, name: savedName, price: savedPrice } = props
+    const { formSubmission, name: savedName, price: savedPrice, addButton, updateButton } = props
 
     const initialValues = {
         name: (savedName) ? savedName : '',
@@ -14,7 +14,6 @@ const ProductForm = (props) =>{
     const validationSchema = yup.object({
         name: yup.string().required('Cannot leave blank'),
         price: yup.string()
-            .matches(/^[0-9]+$/, "Must be only digits")
             .required('Enter a price'),
     })
 
@@ -29,19 +28,23 @@ const ProductForm = (props) =>{
             >
                 {({errors, touched}) => (
                     <Form> 
+                        {savedName && <label> Products name </label> }
                         <Field type="text"
                             name="name" 
                             placeholder="Products name"
-                        />
-                        { errors.name && touched.name ? <span> {errors.name} </span> : null }
+                            className="form-control"
+                        /> 
+                        { errors.name && touched.name ? <span className="form-text" style={{color: "red"}}> {errors.name} </span> : null } <br />
 
+                        {savedPrice && <label> Price </label> }
                         <Field type="text"
                             name="price"
                             placeholder="Price"
+                            className="form-control"
                         />
-                        { errors.price && touched.price ? <span> {errors.price} </span> : null }
+                        { errors.price && touched.price ? <span className="form-text" style={{color: "red"}} > {errors.price} </span> : null } <br />
 
-                        <button type="submit" className="btn btn-success btn-sm" >Add</button>
+                        <button type="submit" className="btn btn-primary d-grid gap-2 col-12" > { addButton ? addButton : updateButton } </button>
                     </Form>
                 )}
 

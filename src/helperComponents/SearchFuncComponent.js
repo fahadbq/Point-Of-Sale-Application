@@ -49,7 +49,7 @@ const SearchFuncComponent = (props) => {
     }
 
     return (
-        <div className="row col-12" >
+        <div className="row col-12" style={{width: '800px'}}>
             <form className="input-group input-group-sm mb-3" aria-label="Text input with dropdown button">
                 <input
                     type='text'

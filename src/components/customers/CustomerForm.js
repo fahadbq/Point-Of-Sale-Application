@@ -2,7 +2,7 @@ import { Formik, Form, Field } from "formik"
 import * as yup from 'yup'
 
 const CustomerForm = (props) =>{
-    const { formSubmission, name: savedName, mobile: savedMobile, email: savedEmail  } = props
+    const { formSubmission, name: savedName, mobile: savedMobile, email: savedEmail, addButton, updateButton  } = props
 
     const initialValues = {
         name: (savedName) ? savedName : '',
@@ -33,6 +33,7 @@ const CustomerForm = (props) =>{
 
                 { ({ errors, touched}) => (
                     <Form >
+                        {savedName && <label> Customers name </label> }
                         <Field type="text" 
                             name="name"
                             placeholder="Customers name"
@@ -40,6 +41,7 @@ const CustomerForm = (props) =>{
                         />
                         { errors.name && touched.name ? <span className="form-text" style={{color: "red"}} > {errors.name} </span> : null } <br />
 
+                        {savedMobile && <label> Mobile </label> }
                         <Field type="text"
                             name="mobile"
                             placeholder="Phone number"
@@ -47,14 +49,15 @@ const CustomerForm = (props) =>{
                         />
                         { errors.mobile && touched.mobile ? <span className="form-text" style={{color: "red"}} > {errors.mobile} </span> : null } <br />
 
+                        {savedEmail && <label> Email </label> }
                         <Field type="email"
                             name="email"
-                            placeholder="email"
+                            placeholder="E-mail"
                             className="form-control"
                         />
                         { errors.email && touched.email ? <span className="form-text" style={{color: "red"}} > {errors.email} </span> : null } <br />
 
-                        <button type="submit" className="btn btn-primary d-grid gap-2 col-12" > Add </button>
+                        <button type="submit" className="btn btn-primary d-grid gap-2 col-12" > {addButton ? addButton : updateButton } </button>
                     </Form>
                 )}
 

@@ -2,6 +2,8 @@ import { useDispatch } from 'react-redux'
 import ProductForm from './ProductsForm'
 import { asyncEditProduct } from '../../reduxFiles/actions/productsAction'
 
+import { Modal, ModalHeader, ModalBody } from 'reactstrap'
+
 const EditProduct = (props) => {
     const { handleToggle, _id, name, price } = props
 
@@ -12,12 +14,22 @@ const EditProduct = (props) => {
     }
 
     return (
-        <tr>
-            <td><ProductForm formSubmission={formSubmission} name={name} price={price} /></td>
-
-            <td> </td>
-            <td> <button onClick={ handleToggle } > Cancel </button> </td>
-        </tr>
+        <Modal isOpen={handleToggle} centered={true} size="sm" >
+            <ModalHeader
+                charCode="Y"
+                toggle={handleToggle}
+            >
+                <h4> Edit Customer </h4>
+            </ModalHeader>
+            <ModalBody>
+                <ProductForm 
+                    formSubmission={formSubmission} 
+                    name={name} 
+                    price={price} 
+                    updateButton = "Update"
+                />
+            </ModalBody>
+        </Modal>
     )
 }
 

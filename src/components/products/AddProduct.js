@@ -3,36 +3,46 @@ import { useDispatch } from "react-redux"
 import { asyncAddProduct } from '../../reduxFiles/actions/productsAction'
 import ProductForm from "./ProductsForm"
 
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap'
 
 
-const AddProduct = (props) =>{
-    const [ addToggle, setAddtoggle ] = useState(false)
-    
+
+const AddProduct = (props) => {
+    const [addModal, setAddModal] = useState(false)
+
     const handleAddToggle = () => {
-        setAddtoggle(!addToggle)
+        setAddModal(!addModal)
     }
 
     const dispatch = useDispatch()
 
-    const formSubmission = (formData, resetForm) =>{ 
+    const formSubmission = (formData, resetForm) => {
         dispatch(asyncAddProduct(formData, resetForm))
     }
 
     return (
         <div>
-            
-            { addToggle ? (
-                <div> 
-                    <h3> Create Products </h3>
-
+            <Button
+                color="success"
+                onClick={handleAddToggle}
+                style={{ display: 'inline-block', float: 'right' }}
+            >
+                Add Products
+            </Button>
+            <Modal isOpen={addModal} centered={true} size="sm" >
+                <ModalHeader
+                    charCode="Y"
+                    toggle={handleAddToggle}
+                >
+                    Create Product
+                </ModalHeader>
+                <ModalBody>
                     <ProductForm 
-                    formSubmission={formSubmission} 
+                        formSubmission={formSubmission}
+                        addButton = 'Add'
                     />
-                </div>
-                ) : (
-                <button onClick={handleAddToggle} className='btn btn-success' style={{ display:'inline-block', float: 'right' }} > Add Products </button>) 
-            }
-
+                </ModalBody>
+            </Modal>
         </div>
     )
 }

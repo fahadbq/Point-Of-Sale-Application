@@ -25,7 +25,7 @@ const ProductItem = (props) =>{
         ) : (
         <tr key={prod._id} >
             <td> {prod.name } </td>
-            <td> {prod.price } </td>
+            <td> ${prod.price } </td>
             <td> <button onClick={handleToggle} className="btn btn-outline-dark btn-sm" style={{ marginRight: "20px" }} > Edit </button> 
 
                 <button onClick={ () =>{
