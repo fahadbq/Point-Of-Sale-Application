@@ -52,14 +52,15 @@
     <li>Redux</li>
     <li>Redux Thunk</li>
     <li>Bootstrap</li>
+    <li>Reactstrap</li>
     <li>Formik</li>
     <li>Yup</li>
     <li>Axios</li>
-    <li>Moment</li>
     <li>React to print</li>
     <li>Sweetalert</li>
     <li>React Google Charts</li>
     <li>React Router Dom</li>
+    <li>Date-fns</li>
 </ul>
 
 <h4>Thank you reading project summary...</h4>
