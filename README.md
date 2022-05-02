@@ -63,4 +63,4 @@
     <li>Date-fns</li>
 </ul>
 
-<h4>Thank you reading project summary...</h4>
+<h4>Thank you reading project summary!!</h4>
