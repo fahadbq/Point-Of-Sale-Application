@@ -30,7 +30,7 @@ const Navigate = (props) =>{
               swal("Logged out", {
                 icon: "success",
               });
-              props.history.push('/')
+              props.history.push('/login')
             }
           });
     }
