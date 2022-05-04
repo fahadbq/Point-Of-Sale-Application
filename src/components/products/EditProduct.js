@@ -19,7 +19,7 @@ const EditProduct = (props) => {
                 charCode="Y"
                 toggle={handleToggle}
             >
-                <h4> Edit Customer </h4>
+                Edit Customer
             </ModalHeader>
             <ModalBody>
                 <ProductForm 

@@ -31,7 +31,6 @@ const AddProduct = (props) => {
             </Button>
             <Modal isOpen={addModal} centered={true} size="sm" >
                 <ModalHeader
-                    charCode="Y"
                     toggle={handleAddToggle}
                 >
                     Create Product

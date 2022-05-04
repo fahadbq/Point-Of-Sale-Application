@@ -32,6 +32,7 @@ export const asyncAddCustomer = (formData, resetForm) =>{
         axios.post(`/customers`, formData) //Required token 
             .then((res) =>{
                 const custObj = res.data
+                console.log("got data" , custObj)
                 dispatch(addCustomer(custObj))
                 resetForm({ values: ''})
             })

@@ -29,10 +29,9 @@ const AddCustomers = (props) => {
             </Button>
             <Modal isOpen={addModal} centered={true} size="sm" >
                 <ModalHeader
-                    charCode="Y"
                     toggle={handleAddToggle}
                 >
-                    <h4> Create Customer </h4>
+                    Create Customer
                 </ModalHeader>
                 <ModalBody>
                     <CustomerForm
