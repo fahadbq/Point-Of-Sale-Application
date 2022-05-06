@@ -36,7 +36,7 @@ const DashboardChart = (props) => {
     })
 
     return (
-        <div style={{position: "fixed", bottom: "300px", width: "800px", left: "0px" }} >
+        <div style={{position: "fixed", bottom: "280px", width: "850px", left: "0px" }} >
             <Chart chartType="ColumnChart" width="100%" height="400px" data={data} />
         </div>
     )

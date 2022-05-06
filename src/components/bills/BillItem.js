@@ -3,6 +3,8 @@ import { asyncRemoveBills } from '../../reduxFiles/actions/billsAction'
 import findName from '../../reduxFiles/selectors/findName'
 import BillDetails from './BillDetails'
 
+import { FaTrashAlt } from "react-icons/fa";
+
 const BillItem = (props) => {
 
     const { bill } = props
@@ -29,7 +31,7 @@ const BillItem = (props) => {
                 <td>
                     <button onClick={() => {
                         handleRemove(bill._id)
-                    }} className="btn btn-outline-danger btn-sm" > Remove </button>
+                    }} className="btn btn-outline-danger btn-sm" > <FaTrashAlt /> </button>
                 </td>
             </tr>
     )

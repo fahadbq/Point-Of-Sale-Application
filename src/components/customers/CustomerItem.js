@@ -4,6 +4,9 @@ import { useDispatch } from 'react-redux'
 import EditCustomer from './EditCustomer'
 import { asyncRemoveCustomer } from '../../reduxFiles/actions/customersAction'
 
+import { AiFillEdit } from "react-icons/ai";
+import { FaTrashAlt } from "react-icons/fa";
+
 const CustomerItem = (props) => {
     const { cust } = props
 
@@ -29,11 +32,11 @@ const CustomerItem = (props) => {
                 <td> {cust.name} </td>
                 <td> {cust.email} </td>
                 <td> {cust.mobile} </td>
-                <td> <button onClick={handleToggle} className="btn btn-outline-dark btn-sm" style={{ marginRight: "20px" }} > Edit </button>
+                <td> <button onClick={handleToggle} className="btn btn-outline-dark" style={{ marginRight: "20px" }} > <AiFillEdit /> </button>
 
                     <button onClick={() => {
                         handleRemove(cust._id)
-                    }} className='btn btn-outline-danger btn-sm' > Remove </button>
+                    }} className='btn btn-outline-danger' > <FaTrashAlt /> </button>
                 </td>
             </tr>)
     )
