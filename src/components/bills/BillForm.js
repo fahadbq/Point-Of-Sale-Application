@@ -43,12 +43,12 @@ const BillForm = (props) => {
     }
 
     const validationSchema = yup.object({
-        date: yup.string().required('Date is required'),
+        date: yup.string().required('Date is required!'),
         customer: yup.string().required('Select a customer!')
     })
 
     return (
-        <div className='border border-2 shadow-sm p-3 mb-5 bg-body rounded' style={{ position: "fixed", top: '105px', right: "50px", width: "490px", height: "455px" }} >
+        <div className='border border-2 shadow-sm p-3 mb-5 bg-body rounded' style={{ position: "fixed", top: '105px', right: "50px", width: "500px", height: "455px" }} >
             
             <h4> Create a Bill </h4> <hr />
 
@@ -70,7 +70,7 @@ const BillForm = (props) => {
                             className="form-control"
                         />
 
-                        { errors.date && touched.date ? <div> <span className="form-text" > { errors.date } </span> </div> : null }
+                        { errors.date && touched.date ? <div> <span className="form-text" style={{color: "red"}} > { errors.date } </span> </div> : null }
                     </div>
 
                     <div className="col-md-6" >
@@ -81,7 +81,7 @@ const BillForm = (props) => {
                                 return <option key={ cust._id } value={cust._id} > {cust.name} </option>
                             })}
                         </Field>
-                        { errors.customer && touched.customer ? <div> <span className="form-text" > { errors.customer } </span> </div> : null }
+                        { errors.customer && touched.customer ? <div> <span className="form-text" style={{color: 'red'}} > { errors.customer } </span> </div> : null }
                     </div>
                     
                     { inputFields.map(( field, index) =>{
