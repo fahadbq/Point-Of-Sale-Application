@@ -4,8 +4,8 @@ import * as yup from 'yup'
 import { useDispatch } from 'react-redux'
 import { asyncRegisterUser } from '../reduxFiles/actions/usersAction'
 
-//image import 
-import PngImage from '../assets/PngItem1.png'
+//images
+import PngImage from '../assets/PngImage.png'
 
 const Register = (props) => {
 
@@ -30,6 +30,11 @@ const Register = (props) => {
             .min(8, "Must be more than 8 character")
             .required('Password required'),
     })
+
+    //Re-directing user to login page
+    const handleClick = () =>{
+        props.history.push('/login')
+    }
 
     return (
         <div className="border shadow p-3 mb-5 bg-body rounded" style={{ position: "fixed", width: "360px", top: '120px', left: "90px" }} >
@@ -106,11 +111,12 @@ const Register = (props) => {
                     </Form>
                 )}
 
-
             </Formik>
 
-            <div style={{ position: "fixed", top: '200px', right: "0px" }}  >
-                <img className="img-fluid w-50" src={PngImage} alt="registerImage" />
+            <small> Already have an account ? <button onClick={handleClick} className="btn btn-link btn-sm" > Log In </button> </small>
+
+            <div style={{ position: "fixed", top: '160px', right: "200px", maxWidth: "700px" }} >
+                <img className="img-fluid width: 50% \9" src={PngImage} alt="loginImage" />
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 <h1>POS Billing Application
 </h1>
 <h2>Overview</h2>
-<p></p>
+<p>Software that lets you checkout customers, and make sales. Point-Of-Sales billing Application lets you register and log in to application. Once the user logs in a JSON Web Token is generated. This generated JWT is stored in local storage. The user can switch pages from customer to product, product to billing and anywhere in the web page. The user can be in position to add, update, read and delete the customers and product respectively. The user can carry out  the customer billing for his/her products. The bill  is generated and user can print or download the bill. There is also a dashboard page where the user can view the statistics of the total customers, products, billing and revenue. The total sale is represented in the bar graph to show the sale per week. Then once the user logs out the JWT is cleared from the local storage. Processes the payment, and modifies your inventorylevels to reflect the sale.</p>
 
 
 

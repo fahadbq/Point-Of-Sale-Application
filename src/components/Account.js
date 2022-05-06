@@ -21,15 +21,13 @@ const Account = (props) => {
                         color="secondary"
                     >
                         <CardTitle tag="h5">
-                            User Info
+                            User Info <hr />
                         </CardTitle>
                         <CardText>
-                            <ul>
-                                <li> Username: {user.data.username} </li>
-                                <li> Email: {user.data.email} </li>
-                                <li> Address: {user.data.address} </li>
-                                <li> Business name: {user.data.businessName} </li>
-                            </ul>
+                            Username: {user.data.username} <br />
+                            Email: {user.data.email} <br />
+                            Address: {user.data.address} <br />
+                            Business name: {user.data.businessName} <br />
                         </CardText>
                     </Card>
                 )

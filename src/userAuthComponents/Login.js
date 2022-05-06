@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { asyncLoginUser } from '../reduxFiles/actions/usersAction'
 
 //images
-import PngImage2 from '../assets/PngItem2.png'
+import PngImage from '../assets/PngImage.png'
 
 const Login = (props) =>{
     const { handleAuth } = props
@@ -81,12 +81,12 @@ const Login = (props) =>{
                     </Form>
                 )}
 
-            </Formik> <hr />
+            </Formik>
 
-            <button onClick={handleClick} className="btn btn-secondary btn-sm" > Create New Account </button>
+            <button onClick={handleClick} className="btn btn-link btn-sm" > Create New Account </button>
             
             <div style={{ position: "fixed", top: '160px', right: "200px", maxWidth: "700px" }} >
-                <img className="img-fluid width: 50% \9" src={PngImage2} alt="loginImage" />
+                <img className="img-fluid width: 50% \9" src={PngImage} alt="loginImage" />
             </div>
 
         </div>
