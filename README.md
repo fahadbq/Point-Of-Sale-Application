@@ -1,4 +1,4 @@
-# Hosted On [Click HERE](https://pos-billing-application11.herokuapp.com/).
+# Hosted On [Click HERE](https://point-of-sale-application1.netlify.app/).
 
 <h1>POS Billing Application
 </h1>
