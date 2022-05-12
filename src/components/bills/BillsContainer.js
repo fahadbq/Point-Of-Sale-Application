@@ -5,7 +5,7 @@ const BillsContainer = ( props ) => {
 
     
     return (
-        <div style={{ position: "fixed", left: "60px", top: "105px", width: "900px" }}>
+        <div>
 
             <BillForm />
             

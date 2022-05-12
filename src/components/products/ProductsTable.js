@@ -11,6 +11,7 @@ const ProductsTable = (props) => {
                     <tr>
                         <th> Name of product </th>
                         <th> Price of product </th>
+                        <th> Date </th>
                         <th> Actions </th>
                     </tr>
                 </thead>

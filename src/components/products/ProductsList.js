@@ -7,7 +7,7 @@ import ProductsTable from './ProductsTable'
 const ProductsList = (props) =>{
     const [ cloneData, setCloneData ] = useState([])
     const [ currentPage, setCurrentPage ] = useState(1)
-    const [ dataPerPage ] = useState(5)
+    const [ dataPerPage ] = useState(6)
 
     const { products } = useSelector((state) => state )
 
@@ -36,9 +36,9 @@ const ProductsList = (props) =>{
                 )  : ( 
                 <div> 
 
-                    <h2 style={{color: "#787878"}} > List of products - ({products.data.length}) </h2> 
-
                     <SearchFuncComponent setCloneData={setCloneData} originalData={products} />
+
+                    <h2 style={{color: "#787878"}} > List of products - ({products.data.length}) </h2> 
 
                     <ProductsTable cloneData={paginateCloneData} /> 
 

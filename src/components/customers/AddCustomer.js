@@ -23,7 +23,7 @@ const AddCustomers = (props) => {
             <Button
                 color="success"
                 onClick={handleAddToggle}
-                style={{ display: 'inline-block', float: 'right' }}
+                style={{ display: 'inline-block', float: 'right', marginBottom: "50px" }}
             >
                 Add Customers
             </Button>

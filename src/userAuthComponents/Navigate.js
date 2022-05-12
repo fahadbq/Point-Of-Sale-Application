@@ -41,10 +41,10 @@ const Navigate = (props) =>{
 
             { userLoggedIn ? (
                     
-                <nav className="navbar sticky-top navbar-expand-lg navbar-light" style={{backgroundColor: "#e3f2fd"}}>
+                <nav className="navbar sticky-top navbar-expand-lg navbar-dark" style={{backgroundColor: "#263238"}}>
                 
                     <div className="container-fluid" >
-                        <NavLink to='dashboard' className="navbar-brand nav-link active " > Dashboard </NavLink>
+                        <NavLink to='dashboard' className="navbar-brand active " > Dashboard </NavLink>
 
                         <div className="collapse navbar-collapse" >
                             <NavLink to='customers' className="navbar-brand nav-link active" > Customers </NavLink>
@@ -60,7 +60,7 @@ const Navigate = (props) =>{
                     </div>
                 </nav>
             ) : (
-                <nav className="navbar sticky-top navbar-expand-lg" style={{backgroundColor: "#e3f2fd"}}>
+                <nav className="navbar sticky-top navbar-expand-lg navbar-dark" style={{backgroundColor: "#263238"}}>
 
                     <div className="container-fluid" >
                         <div className="collapse navbar-collapse" >

@@ -10,7 +10,7 @@ const DashboardContainer = (props) => {
 
     return (
         <div>
-            <div style={{ position: "fixed", right: "90px", top: "80px", color: "#404040" }} >
+            <div style={{ position: "relative", right: "90px", top: "80px", color: "#404040" }} >
                 {user.loading ? (
                     <div className="spinner-border text-success" role="status" >
                     <h2 className="visually-hidden" > loading User </h2>

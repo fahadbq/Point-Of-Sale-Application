@@ -23,10 +23,10 @@ export const asyncRegisterUser = (formData, pushRegisterPath, resetForm) =>{
                     swal({ title: "Registered!", icon: "success", button: "Ok" });
                     pushRegisterPath()
                 } else {
-                    alert(result.message)
+                    swal({ title: result.message, icon: "danger"})
                 }
             })
-            .catch( err => alert(err.message) )
+            .catch( err => swal({ title: err.message, icon: "danger"}) )
     }
 }
 
@@ -49,10 +49,10 @@ export const asyncLoginUser = (formData, pushAccPath, handleAuth, resetForm) =>{
                     handleAuth()
                 } else {
                     console.log(result)
-                    alert('login error', result)
+                    swal({ title: result.errors })
                 }
             })
-            .catch( err => alert(err.message) )
+            .catch( err => swal({ title: err.message }) )
     }
 }
 
@@ -69,7 +69,7 @@ export const asyncGetUser = ( ) =>{
                 dispatch(getUser(userObj))
                 dispatch(toggleLoading())
             })
-            .catch( err => alert('unable to read data', err.message) )
+            .catch( err => swal('unable to read data', err.message) )
     }
 }
 

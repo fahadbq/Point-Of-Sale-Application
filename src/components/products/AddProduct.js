@@ -25,7 +25,7 @@ const AddProduct = (props) => {
             <Button
                 color="success"
                 onClick={handleAddToggle}
-                style={{ display: 'inline-block', float: 'right' }}
+                style={{ display: 'inline-block', float: 'right',}}
             >
                 Add Products
             </Button>

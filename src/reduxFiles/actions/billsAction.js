@@ -1,4 +1,5 @@
 import axios from '../../config/axios'
+import swal from 'sweetalert'
 
 //Object for case 
 export const b = {
@@ -20,7 +21,7 @@ export const asyncGetBills = () =>{
                 const billArr = res.data
                 dispatch(getBills(billArr))
             })
-            .catch( err => alert('Bills Error', err.message ) )
+            .catch( err => swal({ title: err.message, }))
     }
 }
 
@@ -35,7 +36,7 @@ export const asyncAddBills = (formData, resetField, resetForm) => {
                 resetForm({ values: ''})
                 resetField()
             })
-            .catch( err => alert('Add error', err.message) )
+            .catch( err => swal('Add error', err.message) )
     }
 }
 
@@ -48,7 +49,7 @@ export const asyncRemoveBills = (id) => {
                 console.log(billObj)
                 dispatch(removeBill(billObj))
             } )
-            .catch( err => alert(err.message) )
+            .catch( err => swal(err.message) )
     }
 }
 

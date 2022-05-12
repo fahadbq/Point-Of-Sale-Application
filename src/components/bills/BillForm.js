@@ -3,8 +3,9 @@ import { Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 import { useSelector } from "react-redux"
 import { useDispatch } from 'react-redux'
-
 import { asyncAddBills } from '../../reduxFiles/actions/billsAction'
+
+import { FaTrashAlt } from "react-icons/fa";
 
 const BillForm = (props) => {
     //Adding lineItems to input fields 
@@ -48,7 +49,7 @@ const BillForm = (props) => {
     })
 
     return (
-        <div className='border border-2 shadow-sm p-3 mb-5 bg-body rounded' style={{ position: "fixed", top: '105px', right: "50px", width: "500px", height: "455px" }} >
+        <div className='border shadow-sm p-3 mb-5 bg-body rounded' style={{ position: "absolute", top: '105px', right: "50px", width: "500px", height: "500px" }} >
             
             <h4> Create a Bill </h4> <hr />
 
@@ -84,7 +85,13 @@ const BillForm = (props) => {
                         { errors.customer && touched.customer ? <div> <span className="form-text" style={{color: 'red'}} > { errors.customer } </span> </div> : null }
                     </div>
                     
-                    { inputFields.map(( field, index) =>{
+                    <div style={{position: "relative", 
+                     height: "19rem",
+                     overflow: "auto",
+                     display: "block"
+                    }} 
+                    >
+                        { inputFields.map(( field, index) =>{
                         return <div key={index} className="row g-3" >
 
                             <div className="col-md-6" >
@@ -120,16 +127,16 @@ const BillForm = (props) => {
                                 { index ? 
                                 <button type='button' 
                                     onClick={() => handleRemoveField(index) } 
-                                    className="btn btn-danger" > Delete 
+                                    className="btn btn-danger" > <FaTrashAlt /> 
                                 </button> : null }
                             </div>
 
                         </div>
-                    }) }
+                    }) } <br />
                     
-                    <div className="d-grid gap-2 col-12">
-                        <button type='submit' className="btn btn-primary btn-sm" > Submit </button>
                     </div>
+
+                    <button type='submit' className="btn btn-primary btn-sm d-grid" > Submit </button>
 
                 </Form>
                 )}

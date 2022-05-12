@@ -7,7 +7,7 @@ const BillsList = (props) => {
     const [ cloneData, setCloneData ] = useState([]) 
 
     const [ currentPage, setCurretPage ] = useState(1)
-    const [ dataPerPage ] = useState(5)
+    const [ dataPerPage ] = useState(6)
 
     const { bills } = useSelector(state => state)
 
@@ -28,7 +28,7 @@ const BillsList = (props) => {
     }
 
     return ( 
-        <div>
+        <div style={{ position: "absolute", left: "60px", top: "105px", width: "900px" }} >
             { bills.length === 0 ? 
             (<h4> No bills Found </h4>
             ) : (

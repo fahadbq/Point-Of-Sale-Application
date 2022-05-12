@@ -7,7 +7,7 @@ import CustomersTable from './CustomersTable'
 const CustomersList = (props) =>{
     const [ cloneData, setCloneData ] = useState([])
     const [ currentPage, setCurrentPage ] = useState(1)
-    const [ dataPerPage ] = useState(5)
+    const [ dataPerPage ] = useState(6)
 
     const { customers } = useSelector((state) => state)
 
@@ -32,9 +32,10 @@ const CustomersList = (props) =>{
             { customers.data.length === 0 ? 
             (<div> <h3> No customers found </h3> <p> Add your first customer </p> </div>
             ) : (<div> 
-                    <h2 style={{color: "#787878"}} > List of customers - ({customers.data.length}) </h2>
-                    
+
                     <SearchFuncComponent setCloneData={setCloneData} originalData={customers} />
+
+                    <h2 style={{color: "#787878"}} > List of customers - ({customers.data.length}) </h2>
 
                     <CustomersTable cloneData={paginateCloneData} />
 
