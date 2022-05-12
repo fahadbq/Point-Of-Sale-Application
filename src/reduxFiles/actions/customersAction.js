@@ -1,3 +1,4 @@
+import swal from 'sweetalert'
 import axios from '../../config/axios'
 
 //case object 
@@ -22,7 +23,7 @@ export const asyncGetCustomers = () =>{
                 dispatch(getCustomers(getArr))
 
             })
-            .catch( err => alert('geting all customers',err.message))
+            .catch( err => swal('geting all customers',err.message))
     }
 }
 
@@ -36,7 +37,7 @@ export const asyncAddCustomer = (formData, resetForm) =>{
                 dispatch(addCustomer(custObj))
                 resetForm({ values: ''})
             })
-            .catch( err => alert('add customer err', err.message) )
+            .catch( err => swal('add customer err', err.message) )
     }
 }
 
@@ -50,7 +51,7 @@ export const asyncEditCustomer = ( id, formData, handleToggle ) =>{
                 handleToggle()
                 dispatch(editCustomer(editedObj))
             })
-            .catch( err => alert ('edited succesfully', err.message) )
+            .catch( err => swal ('edited succesfully', err.message) )
     }
 }
 
@@ -65,7 +66,7 @@ export const asyncRemoveCustomer = (id) =>{
                     console.log('removed succuesfully', customerObj)
                     dispatch(removeCustomer(customerObj))
                 })
-                .catch( err => alert(err.message))
+                .catch( err => swal(err.message))
         }   
     }
 }

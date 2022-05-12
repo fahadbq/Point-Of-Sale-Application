@@ -35,7 +35,7 @@ export const asyncAddProduct = (formData, resetForm) =>{
                 dispatch(addProduct(prodObj))
                 resetForm({ values: ''})
             })
-            .catch( err => swal(err) )
+            .catch( err => swal({title: err}) )
     }
 }
 
@@ -49,7 +49,7 @@ export const asyncEditProduct = (id, formData, handleToggle ) =>{
                 handleToggle()
                 dispatch(editProduct(prodObj))
             })
-            .catch( err => swal( err.message ))
+            .catch( err => swal({ title: err.message }))
     }
 }
 
@@ -62,7 +62,7 @@ export const asyncDeleteProduct = (id) =>{
                 console.log('successfully removed', prodObj)
                 dispatch(removeProduct(prodObj))
             })
-            .catch( err => swal(err.message) )
+            .catch( err => swal({ title: err.message }) )
     }
 }
 
