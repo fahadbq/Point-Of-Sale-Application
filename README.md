@@ -1,4 +1,4 @@
-# Hosted On [Click HERE](https://point-of-sale-application-5071de.netlify.app/).
+# Hosted On [Click HERE](https://point-of-sale-application-e.netlify.app).
 
 <h1>POS Billing Application
 </h1>
