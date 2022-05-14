@@ -1,4 +1,4 @@
-# Hosted On [Click HERE](https://wonderful-alpaca-5071de.netlify.app).
+# Hosted On [Click HERE](point-of-sale-application-5071de.netlify.app).
 
 <h1>POS Billing Application
 </h1>
