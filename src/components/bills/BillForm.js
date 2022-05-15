@@ -49,7 +49,7 @@ const BillForm = (props) => {
     })
 
     return (
-        <div className='border shadow-sm p-3 mb-5 bg-body rounded' style={{ position: "absolute", top: '105px', right: "50px", width: "500px", height: "500px" }} >
+        <div className='border shadow-sm p-3 mb-5 bg-body rounded' style={{ position: "absolute", top: '105px', right: "50px", width: "500px", height: "480px" }} >
             
             <h4> Create a Bill </h4> <hr />
 
@@ -85,9 +85,9 @@ const BillForm = (props) => {
                         { errors.customer && touched.customer ? <div> <span className="form-text" style={{color: 'red'}} > { errors.customer } </span> </div> : null }
                     </div>
                     
-                    <div style={{position: "relative", 
-                     height: "19rem",
-                     overflow: "auto",
+                    <div style={{
+                     height: "18rem",
+                     overflow: "scroll",
                      display: "block"
                     }} 
                     >
@@ -133,16 +133,14 @@ const BillForm = (props) => {
 
                         </div>
                     }) } <br />
-                    
+
                     </div>
-
+                    
                     <button type='submit' className="btn btn-primary btn-sm d-grid" > Submit </button>
-
                 </Form>
                 )}
 
             </Formik>
-
         </div>
     )
 }
