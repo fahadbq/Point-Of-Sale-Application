@@ -1,6 +1,6 @@
 import { Chart } from 'react-google-charts'
 import { useSelector } from 'react-redux'
-import totalIncome from '../../reduxFiles/selectors/totalIncome'
+import totalIncome from '../../redux/selectors/totalIncome'
 import { format, addDays } from 'date-fns'
 
 const DashboardChart = (props) => {
@@ -36,7 +36,7 @@ const DashboardChart = (props) => {
     })
 
     return (
-        <div style={{position: "absolute", bottom: "260px", width: "830px", left: "0px" }} >
+        <div style={{position: "absolute", bottom: "300px", width: "830px", left: "0px" }} >
             <Chart chartType="ColumnChart" width="100%" height="400px" data={data} />
         </div>
     )

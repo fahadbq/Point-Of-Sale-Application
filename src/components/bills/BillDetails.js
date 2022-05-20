@@ -1,6 +1,6 @@
 import { useState, useRef  } from 'react'
 import { useSelector } from 'react-redux'
-import findName from '../../reduxFiles/selectors/findName'
+import findName from '../../redux/selectors/findName'
 import {Table} from 'reactstrap'
 
 import { useReactToPrint } from "react-to-print";

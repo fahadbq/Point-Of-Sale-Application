@@ -3,10 +3,10 @@ import { useDispatch } from 'react-redux'
 import Navigate from './userAuthComponents/Navigate'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import { asyncGetUser } from './reduxFiles/actions/usersAction'
-import { asyncGetBills } from './reduxFiles/actions/billsAction'
-import { asyncGetCustomers } from './reduxFiles/actions/customersAction'
-import { asynGetProducts } from './reduxFiles/actions/productsAction'
+import { asyncGetUser } from './redux/actions/usersAction'
+import { asyncGetBills } from './redux/actions/billsAction'
+import { asyncGetCustomers } from './redux/actions/customersAction'
+import { asynGetProducts } from './redux/actions/productsAction'
 
 const App = (props) =>{
     const [ userLoggedIn, setUserLoggedIn ] = useState(false) // Created state for handling page reloads

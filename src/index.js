@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import App from './App'
-import configureStore from './reduxFiles/store/store'
+import configureStore from './redux/store/store'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 

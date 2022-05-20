@@ -3,7 +3,7 @@ import { Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 import { useSelector } from "react-redux"
 import { useDispatch } from 'react-redux'
-import { asyncAddBills } from '../../reduxFiles/actions/billsAction'
+import { asyncAddBills } from '../../redux/actions/billsAction'
 
 import { FaTrashAlt } from "react-icons/fa";
 

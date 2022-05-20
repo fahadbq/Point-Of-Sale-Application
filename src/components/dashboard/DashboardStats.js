@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import StatsItem from './StatsItem'
-import totalIncome from '../../reduxFiles/selectors/totalIncome'
+import totalIncome from '../../redux/selectors/totalIncome'
 
 const DashboardStats = (props) => {
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import EditCustomer from './EditCustomer'
-import { asyncRemoveCustomer } from '../../reduxFiles/actions/customersAction'
+import { asyncRemoveCustomer } from '../../redux/actions/customersAction'
 
 import { AiFillEdit } from "react-icons/ai";
 import { FaTrashAlt } from "react-icons/fa";

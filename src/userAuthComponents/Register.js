@@ -2,7 +2,7 @@ import { Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 
 import { useDispatch } from 'react-redux'
-import { asyncRegisterUser } from '../reduxFiles/actions/usersAction'
+import { asyncRegisterUser } from '../redux/actions/usersAction'
 
 //images
 import PngImage from '../assets/PngImage.png'

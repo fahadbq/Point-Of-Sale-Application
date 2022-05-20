@@ -2,7 +2,7 @@ import CustomerForm from './CustomerForm'
 import { Modal, ModalHeader, ModalBody } from 'reactstrap'
 
 import { useDispatch } from "react-redux"
-import { asyncEditCustomer } from '../../reduxFiles/actions/customersAction'
+import { asyncEditCustomer } from '../../redux/actions/customersAction'
 
 const EditCustomer = (props) => {
     const { handleToggle, _id, name, email, mobile } = props

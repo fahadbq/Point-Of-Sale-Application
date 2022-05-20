@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from "react-redux"
-import { asyncAddProduct } from '../../reduxFiles/actions/productsAction'
+import { asyncAddProduct } from '../../redux/actions/productsAction'
 import ProductForm from "./ProductsForm"
 
 import { Modal, ModalHeader, ModalBody, Button } from 'reactstrap'

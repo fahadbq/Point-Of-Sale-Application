@@ -3,7 +3,7 @@ import CustomerForm from './CustomerForm'
 import { Modal, ModalHeader, ModalBody, Button } from 'reactstrap'
 
 import { useDispatch } from "react-redux"
-import { asyncAddCustomer } from '../../reduxFiles/actions/customersAction'
+import { asyncAddCustomer } from '../../redux/actions/customersAction'
 
 const AddCustomers = (props) => {
     const [ addModal, setAddModal] = useState(false)

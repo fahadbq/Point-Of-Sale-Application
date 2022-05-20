@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import ProductForm from './ProductsForm'
-import { asyncEditProduct } from '../../reduxFiles/actions/productsAction'
+import { asyncEditProduct } from '../../redux/actions/productsAction'
 
 import { Modal, ModalHeader, ModalBody } from 'reactstrap'
 
