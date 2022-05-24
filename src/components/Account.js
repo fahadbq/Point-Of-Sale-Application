@@ -15,9 +15,9 @@ const Account = (props) => {
                         <span className="visually-hidden" > Spinner </span>
                     </div>
                 ) : (
-                    <div class="card border-dark mb-3" style={{maxWidth: "18rem"}}>
-                    <h5 class="card-header"> User Info </h5>
-                    <div class="card-body text-dark">
+                    <div className="card border-dark mb-3" style={{maxWidth: "18rem"}}>
+                    <h5 className="card-header"> User Info </h5>
+                    <div className="card-body text-dark">
                         Username: {user.data.username} <br />
                         Email: {user.data.email} <br />
                         Address: {user.data.address} <br />
