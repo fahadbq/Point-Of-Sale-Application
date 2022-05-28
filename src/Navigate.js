@@ -1,15 +1,15 @@
 import { Route, NavLink, withRouter } from 'react-router-dom'
-import PrivateRoute from './../helperComponents/PrivateRoute'
+import PrivateRoute from './helperComponents/PrivateRoute'
 import swal from 'sweetalert'
 
-import Home from './Home'
-import Register from './Register'
-import Login from './Login'
-import Account from '../components/Account'
-import DashboardContainer from '../components/dashboard/DashboardContainer.js'
-import CustomersContainer from '../components/customers/CustomersContainer'
-import ProductsContainer from '../components/products/ProductsContainer'
-import BillsContainer from '../components/bills/BillsContainer'
+import Home from './userAuthComponents/Home'
+import Register from './userAuthComponents/Register'
+import Login from './userAuthComponents/Login'
+import Account from './components/Account'
+import DashboardContainer from './components/dashboard/DashboardContainer.js'
+import CustomersContainer from './components/customers/CustomersContainer'
+import ProductsContainer from './components/products/ProductsContainer'
+import BillsContainer from './components/bills/BillsContainer'
 
 
 const Navigate = (props) =>{
