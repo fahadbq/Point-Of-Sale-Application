@@ -2,6 +2,7 @@ import { useState, useRef  } from 'react'
 import { useSelector } from 'react-redux'
 import findName from '../../redux/selectors/findName'
 import {Table} from 'reactstrap'
+import { Link } from 'react-router-dom'
 
 import { useReactToPrint } from "react-to-print";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap'
@@ -12,6 +13,7 @@ const BillDetails = (props) => {
 
     const { bill } = props
     //make get request for that bill id and get the data to show in modal
+    console.log(bill._id)
 
     const { customers, products } = useSelector((state) => state )
 
@@ -30,14 +32,15 @@ const BillDetails = (props) => {
     return (
         (
             <div >
-                <Button
+                <Link
+                    to={`/bills/${bill._id}`}
                     color="btn-link"
                     className='btn-link'
                     size='sm'
                     onClick={toggle}
                 >
                     Details
-                </Button>
+                </Link>
 
                 <Modal isOpen={modal} centered={true} ref={invoiceRef}>
                     <ModalHeader toggle={toggle} style={{backgroundColor: "#F5F5F5"}}>
