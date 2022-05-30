@@ -7,13 +7,15 @@ import { useReactToPrint } from "react-to-print";
 import {Button } from 'reactstrap'
 import { useParams } from 'react-router-dom';
 import axios from '../../config/axios';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const BillDetails = (props) => {
     const [ bill, setBill ] = useState({})
 
     const { id } = useParams()
+
+    const navigate = useNavigate()
 
     const { customers, products } = useSelector((state) => state )
 
@@ -60,9 +62,9 @@ const BillDetails = (props) => {
                     </tbody>
                 </Table>
                 <div> 
-                    <h4 style={{border:'none', marginRight: "240px", background:'none', display:'inline-block', float: 'right' }}> Total: ${Object.keys(bill).length > 0 && bill.total} </h4> 
+                    <h4 style={{border:'none', marginRight: "255px", background:'none', display:'inline-block', float: 'right' }}> Total: ${Object.keys(bill).length > 0 && bill.total} </h4> 
                 </div>
-                <Link to="/bills" className="btn btn-secondary btn-sm" > Back </Link>
+                <Button onClick={() => navigate('/bills')} className="btn btn-secondary btn-sm" > Back </Button>
                 <Button onClick={handlePrint} className="btn btn-info btn-sm" style={{ marginLeft: "20px" }} > Download Invoice </Button>
 
             </div>

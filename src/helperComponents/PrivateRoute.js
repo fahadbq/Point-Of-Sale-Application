@@ -1,23 +1,10 @@
-import { Route, Redirect } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 //HOC - Higher Order Component
 
-const PrivateRoute = ({ component: Component, ...rest }) =>{
+const PrivateRoute = ({ component: Component}) =>{
 
-
-    return (
-        <Route 
-            { ...rest }
-            render={(props) =>{
-
-                return localStorage.getItem('token') ? 
-                (<Component 
-                   { ...props}
-                />
-                ) : ( <Redirect to={{ pathname: '/login' }} /> )
-                }}
-            />
-    )
+    return localStorage.getItem('token') ? ( <Component /> ) : ( <Navigate to='/login'/> )
 }
 
 export default PrivateRoute

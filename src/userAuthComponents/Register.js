@@ -2,6 +2,7 @@ import { Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { asyncRegisterUser } from '../redux/actions/usersAction'
 
 //images
@@ -10,6 +11,7 @@ import PngImage from '../assets/PngImage.png'
 const Register = (props) => {
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const initialValues = {
         username: "",
@@ -33,7 +35,7 @@ const Register = (props) => {
 
     //Re-directing user to login page
     const handleClick = () =>{
-        props.history.push('/login')
+        navigate('/login')
     }
 
     return (
@@ -49,7 +51,7 @@ const Register = (props) => {
 
                     //call back func for pushing path
                     const pushPath = () => {
-                        return props.history.push('/login')
+                        navigate('/login')
                     }
 
                     dispatch(asyncRegisterUser(values, pushPath, resetForm))

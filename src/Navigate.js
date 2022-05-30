@@ -1,4 +1,4 @@
-import { Route, NavLink, withRouter } from 'react-router-dom'
+import { Routes, Route, NavLink } from 'react-router-dom'
 import PrivateRoute from './helperComponents/PrivateRoute'
 import swal from 'sweetalert'
 
@@ -45,14 +45,14 @@ const Navigate = (props) =>{
                 <nav className="navbar sticky-top navbar-expand-lg navbar-dark" style={{backgroundColor: "#263238"}}>
                 
                     <div className="container-fluid" >
-                        <NavLink to='dashboard' className="navbar-brand active " > Dashboard </NavLink>
+                        <NavLink to='/dashboard' className="navbar-brand active " > Dashboard </NavLink>
 
                         <div className="collapse navbar-collapse" >
-                            <NavLink to='customers' className="navbar-brand nav-link active" > Customers </NavLink>
+                            <NavLink to='/customers' className="navbar-brand nav-link active" > Customers </NavLink>
 
-                            <NavLink to='products' className="navbar-brand nav-link active" > Products </NavLink>
+                            <NavLink to='/products' className="navbar-brand nav-link active" > Products </NavLink>
                             
-                            <NavLink to='bills' className="navbar-brand nav-link active" > Bills </NavLink>
+                            <NavLink to='/bills' className="navbar-brand nav-link active" > Bills </NavLink>
                         </div>
                         
                         <NavLink to='/account' className="navbar-brand nav-link active" > Account </NavLink>
@@ -75,27 +75,21 @@ const Navigate = (props) =>{
 
 
             {/* Route session */}
-            <Route  path='/' component={Home} exact={true} />
-            <Route  path='/register' component={Register} />
-            <Route  path='/login' render={(props) =>{
-                return <Login 
-                    {...props}
-                    handleAuth={handleAuth}
-                    />
-                }} 
-            />
+            <Routes >
+                <Route  path='/' element={<Home />} />
+                <Route  path='/register' element={<Register />} />
+                <Route  path='/login' element={<Login handleAuth={handleAuth} />} />
 
-            {/* Need to add private route funcianality for account and other private comp */}
-            <div >
-                <PrivateRoute path='/account' component={Account} exact />
-                <PrivateRoute path='/customers' component={CustomersContainer} exact />
-                <PrivateRoute path='/products' component={ProductsContainer} exact />
-                <PrivateRoute path='/bills' component={BillsContainer} exact />
-                <PrivateRoute path='/dashboard' component={DashboardContainer} exact />
-                <PrivateRoute path="/bills/:id" exact={true} component={BillDetails} />
-            </div>
+                {/* Need to add private route funcianality for account and other private comp */}
+                <Route path='/account' element={<PrivateRoute component={Account} />}  />
+                <Route path='/customers' element={<PrivateRoute component={CustomersContainer} />}  />
+                <Route path='/products' element={<PrivateRoute component={ProductsContainer} />}  />
+                <Route path='/bills' element={<PrivateRoute component={BillsContainer} />}  />
+                <Route path='/dashboard' element={<PrivateRoute component={DashboardContainer} />}  />
+                <Route path='/bills/:id' element={<PrivateRoute component={BillDetails} />} />
+            </Routes>
         </div>
     )
 }
 
-export default withRouter(Navigate)
+export default Navigate

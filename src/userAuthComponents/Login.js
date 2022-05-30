@@ -2,6 +2,7 @@ import { Field, Form, Formik } from 'formik'
 import * as yup from 'yup'
 
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { asyncLoginUser } from '../redux/actions/usersAction'
 
 //images
@@ -11,6 +12,7 @@ const Login = (props) =>{
     const { handleAuth } = props
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const initialValues = {
         email: '',
@@ -28,7 +30,7 @@ const Login = (props) =>{
 
     //Re-directing user to register page
     const handleClick = () =>{
-        props.history.push('/register')
+        navigate('/register')
     }
 
     return (
@@ -43,7 +45,7 @@ const Login = (props) =>{
 
                     //push to account after logging in successfully 
                     const pushPath = () =>{
-                        return props.history.push('/account')
+                        return navigate('/account')
                     }
                     
                     dispatch(asyncLoginUser(values, pushPath, handleAuth, resetForm))
