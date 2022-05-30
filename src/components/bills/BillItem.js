@@ -4,6 +4,7 @@ import findName from '../../redux/selectors/findName'
 import BillDetails from './BillDetails'
 
 import { FaTrashAlt } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const BillItem = (props) => {
 
@@ -26,7 +27,7 @@ const BillItem = (props) => {
 
                 <td> ${bill.total} </td>
 
-                <td> <BillDetails bill={bill} /> {/* Item details Component */} </td>
+                <td> <Link to={`/bills/${bill._id}`} > Details </Link> {/* Item details Component */} </td>
 
                 <td>
                     <button onClick={() => {

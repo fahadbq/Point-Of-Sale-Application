@@ -10,6 +10,7 @@ import DashboardContainer from './components/dashboard/DashboardContainer.js'
 import CustomersContainer from './components/customers/CustomersContainer'
 import ProductsContainer from './components/products/ProductsContainer'
 import BillsContainer from './components/bills/BillsContainer'
+import BillDetails from './components/bills/BillDetails'
 
 
 const Navigate = (props) =>{
@@ -91,6 +92,7 @@ const Navigate = (props) =>{
                 <PrivateRoute path='/products' component={ProductsContainer} />
                 <PrivateRoute path='/bills' component={BillsContainer} />
                 <PrivateRoute path='/dashboard' component={DashboardContainer} />
+                <PrivateRoute path="/bills/:_id" component={BillDetails} />
             </div>
         </div>
     )

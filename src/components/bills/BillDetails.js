@@ -1,16 +1,20 @@
-import { useState, useRef  } from 'react'
+import { useState, useEffect, useRef  } from 'react'
 import { useSelector } from 'react-redux'
 import findName from '../../redux/selectors/findName'
 import {Table} from 'reactstrap'
 
 import { useReactToPrint } from "react-to-print";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap'
+import { useParams } from 'react-router-dom';
+import axios from '../../config/axios';
 
 
 const BillDetails = (props) => {
     const [ modal, setModal ] = useState(false)
+    const [ bill, setBill ] = useState({})
 
-    const { bill } = props
+    const { _id } = useParams()
+    // const { bill } = props
     //make get request for that bill id and get the data to show in modal
 
     const { customers, products } = useSelector((state) => state )
@@ -21,23 +25,23 @@ const BillDetails = (props) => {
 
     const invoiceRef = useRef();
 
-    const handlePrint = useReactToPrint({
+        const handlePrint = useReactToPrint({
        
         content: () => invoiceRef.current,
     });
 
+    useEffect(() => {
+        axios.get(`/bills/${_id}`)
+            .then(response => {
+                console.log(response.data)
+                setBill(response.data)
+            })
+            .catch(err => alert("getbillid", err.message))
+    }, [_id])
 
     return (
         (
             <div >
-                <Button
-                    color="btn-link"
-                    className='btn-link'
-                    size='sm'
-                    onClick={toggle}
-                >
-                    Details
-                </Button>
 
                 <Modal isOpen={modal} centered={true} ref={invoiceRef}>
                     <ModalHeader toggle={toggle} style={{backgroundColor: "#F5F5F5"}}>
