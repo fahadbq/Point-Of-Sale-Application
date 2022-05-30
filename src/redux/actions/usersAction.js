@@ -40,12 +40,12 @@ export const asyncLoginUser = (formData, pushAccPath, handleAuth, resetForm) =>{
                 if( !result.hasOwnProperty('errors')){ // Error not found
                     localStorage.setItem('token', result.token)
                     swal({ text: "Logged in", icon: "success", button: "Ok" });
-                    pushAccPath()
                     dispatch(asyncGetUser()) // Need data after logging in
                     dispatch(asyncGetBills())
                     dispatch(asyncGetCustomers())
                     dispatch(asynGetProducts())
                     resetForm({ values: ''})
+                    pushAccPath()
                     handleAuth()
                 } else {
                     console.log(result)

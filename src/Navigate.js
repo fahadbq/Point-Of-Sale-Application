@@ -87,12 +87,12 @@ const Navigate = (props) =>{
 
             {/* Need to add private route funcianality for account and other private comp */}
             <div >
-                <PrivateRoute path='/account' component={Account} />
-                <PrivateRoute path='/customers' component={CustomersContainer} />
-                <PrivateRoute path='/products' component={ProductsContainer} />
-                <PrivateRoute path='/bills' component={BillsContainer} />
-                <PrivateRoute path='/dashboard' component={DashboardContainer} />
-                <PrivateRoute path="/bills/:_id" component={BillDetails} />
+                <PrivateRoute path='/account' component={Account} exact />
+                <PrivateRoute path='/customers' component={CustomersContainer} exact />
+                <PrivateRoute path='/products' component={ProductsContainer} exact />
+                <PrivateRoute path='/bills' component={BillsContainer} exact />
+                <PrivateRoute path='/dashboard' component={DashboardContainer} exact />
+                <PrivateRoute path="/bills/:id" exact={true} component={BillDetails} />
             </div>
         </div>
     )

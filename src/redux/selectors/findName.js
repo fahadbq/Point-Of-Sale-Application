@@ -5,10 +5,8 @@ const findName = (reduxData, id) => {
     const result = data.find((ele) => {
         return ele._id === id
     })
-
-    if(result){
-        return result.name
-    }
+    
+    return result ? result.name : "loading"
 }
 
 export default findName

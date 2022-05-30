@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { asyncRemoveBills } from '../../redux/actions/billsAction'
 import findName from '../../redux/selectors/findName'
-import BillDetails from './BillDetails'
 
 import { FaTrashAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
