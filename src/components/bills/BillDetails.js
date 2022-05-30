@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect  } from 'react'
+import { useRef } from 'react'
 import { useSelector } from 'react-redux'
 import findName from '../../redux/selectors/findName'
 import {Table} from 'reactstrap'
@@ -6,26 +6,19 @@ import {Table} from 'reactstrap'
 import { useReactToPrint } from "react-to-print";
 import {Button } from 'reactstrap'
 import { useParams } from 'react-router-dom';
-import axios from '../../config/axios';
 import { useNavigate } from 'react-router-dom';
 
 
 const BillDetails = (props) => {
-    const [ bill, setBill ] = useState({})
 
     const { id } = useParams()
 
     const navigate = useNavigate()
 
-    const { customers, products } = useSelector((state) => state )
+    const { bills, customers, products } = useSelector((state) => state )
 
-    useEffect(() => {
-        axios.get(`/bills/${id}`)
-            .then(response => {
-                setBill(response.data)
-            })
-            .catch(err => alert("bill_id", err.message))
-    }, [id])
+    const bill = (bills.data.length > 0 && bills.data.find(ele => ele._id === id))
+    console.log(bill)
 
     const invoiceRef = useRef();
 
