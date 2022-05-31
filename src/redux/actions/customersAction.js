@@ -30,7 +30,11 @@ export const asyncGetCustomers = () =>{
 export const asyncAddCustomer = (formData, resetForm) =>{
 
     return (dispatch) =>{
-        axios.post(`/customers`, formData) //Required token 
+        axios.post(`/customers`, formData, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        }) //Required token 
             .then((res) =>{
                 const custObj = res.data
                     
@@ -44,7 +48,11 @@ export const asyncAddCustomer = (formData, resetForm) =>{
 export const asyncEditCustomer = ( id, formData, handleToggle ) =>{
 
     return (dispatch) =>{
-        axios.put(`/customers/${id}`, formData) //Required token 
+        axios.put(`/customers/${id}`, formData, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        }) //Required token 
             .then((res) => {
                 const editedObj = res.data
                 swal({title: 'Edited successfully', icon: "success"})
@@ -69,7 +77,11 @@ export const asyncRemoveCustomer = (id) =>{
           })
           .then((willDelete) => {
             if (willDelete) {
-                axios.delete(`/customers/${id}`) //Required token 
+                axios.delete(`/customers/${id}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                }) //Required token 
                 .then((res) =>{
                     const customerObj = res.data
                     swal({title: 'Removed successfully', icon: "success"})

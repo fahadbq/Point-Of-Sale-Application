@@ -28,7 +28,11 @@ export const asyncGetBills = () =>{
 export const asyncAddBills = (formData, resetField, resetForm) => {
 
     return (dispatch) => {
-        axios.post(`/bills`, formData) //Required token
+        axios.post(`/bills`, formData, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        }) //Required token
             .then((res) =>{
                 const billObj = res.data
                 console.log('successfully created', billObj)
@@ -43,13 +47,28 @@ export const asyncAddBills = (formData, resetField, resetForm) => {
 export const asyncRemoveBills = (id) => {
 
     return (dispatch) => {
-        axios.delete(`/bills/${id}`) //Required token
-            .then( (res) => {
-                const billObj = res.data
-                console.log(billObj)
-                dispatch(removeBill(billObj))
-            } )
-            .catch( err => swal(err.message) )
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Bill!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                axios.delete(`/bills/${id}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                }) //Required token
+                    .then( (res) => {
+                        const billObj = res.data
+                        console.log(billObj)
+                        dispatch(removeBill(billObj))
+                    } )
+                    .catch( err => swal(err.message) )
+            }
+          });
     }
 }
 

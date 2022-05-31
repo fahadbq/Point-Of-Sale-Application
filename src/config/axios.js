@@ -1,10 +1,7 @@
 import Axios from 'axios'
 
 const axios = Axios.create({
-    baseURL: `https://dct-pos-app.herokuapp.com/api`,
-    headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-    }
+    baseURL: `https://dct-pos-app.herokuapp.com/api`
 })
 
 export default axios

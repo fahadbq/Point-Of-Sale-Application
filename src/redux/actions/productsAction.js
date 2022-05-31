@@ -29,7 +29,11 @@ export const asynGetProducts = () =>{
 export const asyncAddProduct = (formData, resetForm) =>{
 
     return (dispatch) => {
-        axios.post(`/products`, formData) //Required token 
+        axios.post(`/products`, formData, { 
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        }) //Required token 
             .then((res) => {
                 const prodObj = res.data
                 dispatch(addProduct(prodObj))
@@ -42,7 +46,11 @@ export const asyncAddProduct = (formData, resetForm) =>{
 export const asyncEditProduct = (id, formData, handleToggle ) =>{
 
     return (dispatch) =>{
-        axios.put(`/products/${id}`, formData) //Required token
+        axios.put(`/products/${id}`, formData, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        }) //Required token
             .then((res) =>{
                 const prodObj = res.data
                 swal('Successfully edited', prodObj)
@@ -65,7 +73,11 @@ export const asyncDeleteProduct = (id) =>{
           })
           .then((willDelete) => {
             if (willDelete) {
-                axios.delete(`/products/${id}`) //Required token
+                axios.delete(`/products/${id}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                }) //Required token
                     .then((res) =>{
                         const prodObj = res.data
                         swal('Successfully removed', prodObj)
