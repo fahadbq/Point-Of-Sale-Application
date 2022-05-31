@@ -53,7 +53,7 @@ export const asyncEditProduct = (id, formData, handleToggle ) =>{
         }) //Required token
             .then((res) =>{
                 const prodObj = res.data
-                swal('Successfully edited', prodObj)
+                swal({title: 'Successfully edited', icon: "success"})
                 handleToggle()
                 dispatch(editProduct(prodObj))
             })
@@ -80,7 +80,7 @@ export const asyncDeleteProduct = (id) =>{
                 }) //Required token
                     .then((res) =>{
                         const prodObj = res.data
-                        swal('Successfully removed', prodObj)
+                        swal({title: 'Successfully removed', icon: "success"})
                         dispatch(removeProduct(prodObj))
                     })
                     .catch( err => swal({ title: err.message }) )
