@@ -45,7 +45,7 @@ export const asyncEditProduct = (id, formData, handleToggle ) =>{
         axios.put(`/products/${id}`, formData) //Required token
             .then((res) =>{
                 const prodObj = res.data
-                console.log('succuesfull edited', prodObj)
+                swal('Successfully edited', prodObj)
                 handleToggle()
                 dispatch(editProduct(prodObj))
             })
@@ -56,13 +56,24 @@ export const asyncEditProduct = (id, formData, handleToggle ) =>{
 export const asyncDeleteProduct = (id) =>{
 
     return (dispatch) => {
-        axios.delete(`/products/${id}`) //Required token
-            .then((res) =>{
-                const prodObj = res.data
-                console.log('successfully removed', prodObj)
-                dispatch(removeProduct(prodObj))
-            })
-            .catch( err => swal({ title: err.message }) )
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Product!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                axios.delete(`/products/${id}`) //Required token
+                    .then((res) =>{
+                        const prodObj = res.data
+                        swal('Successfully removed', prodObj)
+                        dispatch(removeProduct(prodObj))
+                    })
+                    .catch( err => swal({ title: err.message }) )
+            }
+          });
     }
 }
 

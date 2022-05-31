@@ -23,7 +23,7 @@ export const asyncGetCustomers = () =>{
                 dispatch(getCustomers(getArr))
 
             })
-            .catch( err => swal('geting all customers',err.message))
+            .catch( err => swal('getting all customers',err.message))
     }
 }
 
@@ -33,7 +33,7 @@ export const asyncAddCustomer = (formData, resetForm) =>{
         axios.post(`/customers`, formData) //Required token 
             .then((res) =>{
                 const custObj = res.data
-                console.log("got data" , custObj)
+                    
                 dispatch(addCustomer(custObj))
                 resetForm({ values: ''})
             })
@@ -47,7 +47,7 @@ export const asyncEditCustomer = ( id, formData, handleToggle ) =>{
         axios.put(`/customers/${id}`, formData) //Required token 
             .then((res) => {
                 const editedObj = res.data
-                console.log('edited succesfully',editedObj)
+                swal({title: 'Edited successfully', icon: "success"})
                 handleToggle()
                 dispatch(editCustomer(editedObj))
             })
@@ -58,16 +58,26 @@ export const asyncEditCustomer = ( id, formData, handleToggle ) =>{
 export const asyncRemoveCustomer = (id) =>{
 
     return (dispatch) =>{
-        const confirm = window.confirm('Are you sure ?')
-        if(confirm){
-            axios.delete(`/customers/${id}`) //Required token 
+        // const confirm = window.confirm('Are you sure ?')
+
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this Customer!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                axios.delete(`/customers/${id}`) //Required token 
                 .then((res) =>{
                     const customerObj = res.data
-                    console.log('removed succuesfully', customerObj)
+                    swal({title: 'Removed successfully', icon: "success"})
                     dispatch(removeCustomer(customerObj))
                 })
                 .catch( err => swal(err.message))
-        }   
+            }
+          });
     }
 }
 
