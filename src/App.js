@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import Navigate from './Navigate'
+import "./App.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { asyncGetUser } from './redux/actions/usersAction'
@@ -29,7 +30,7 @@ const App = (props) =>{
     }, [dispatch])
 
     return (
-        <div>
+        <div className='App'>
             <Navigate userLoggedIn={userLoggedIn} handleAuth={handleAuth} />
         </div>
     )
