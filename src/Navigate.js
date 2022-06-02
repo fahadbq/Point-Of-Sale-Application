@@ -80,7 +80,7 @@ const Navigate = (props) =>{
                 <Route  path='/register' element={<Register />} />
                 <Route  path='/login' element={<Login handleAuth={handleAuth} />} />
 
-                {/* Need to add private route funcianality for account and other private comp */}
+                {/* Private route */}
                 <Route path='/account' element={<PrivateRoute component={Account} />}  />
                 <Route path='/customers' element={<PrivateRoute component={CustomersContainer} />}  />
                 <Route path='/products' element={<PrivateRoute component={ProductsContainer} />}  />
